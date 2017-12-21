@@ -1,0 +1,12 @@
+12|11|20D
+11|9|Canon
+9|8|DSLR
+1|0|Electronics
+6|4|iPod
+4|1|MP3 player
+10|9|Nikon
+3|0|Photo
+7|6|Shuffle
+8|3|SLR
+5|1|TV
+2|0|Video
