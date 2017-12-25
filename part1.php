@@ -48,47 +48,47 @@ for($row = 1; $row <= $i; $row++){
 
 // Current Array
 //  $Arr = {
-//	Array(1,0,Electronics,	 0)
-//	Array(2,0,Video,		 0)
-//	Array(3,0,Photo,		 0)
-//	Array(12,11,20D,		-1)
-//	Array(6,4,iPod,			-1)
-//	Array(4,1,MP3 player,	-1)
-//	Array(10,9,Nikon,		-1)
-//	Array(11,9,Canon,		-1)
-//	Array(7,6,Shuffle,		-1)
-//	Array(8,3,SLR,			-1)
-//	Array(5,1,TV,			-1)
-//	Array(9,8,DSLR,			-1)
+//	Array(1, 0, Electronics, 0)
+//	Array(2, 0, Video,	 0)
+//	Array(3, 0, Photo,	 0)
+//	Array(12,11,20D,	-1)
+//	Array(6, 4, iPod,	-1)
+//	Array(4, 1, MP3 player,	-1)
+//	Array(10,9, Nikon,	-1)
+//	Array(11,9, Canon,	-1)
+//	Array(7, 6, Shuffle,	-1)
+//	Array(8, 3, SLR,	-1)
+//	Array(5, 1, TV,		-1)
+//	Array(9, 8, DSLR,	-1)
 // }
 
 
 // This Loop does it all
 $firstLoopCount = count($Arr);					// first For statement max count (12)
-for($row = 0; $row < $firstLoopCount; $row++)	// first For statement
+for($row = 0; $row < $firstLoopCount; $row++)			// first For statement
 {
-	for($col = $row; $col < count($Arr); $col++)// second For statement
+	for($col = $row; $col < count($Arr); $col++)		// second For statement
 	{
 		if( $Arr[$row][0] == $Arr[$col][1])		// search for child elements
 		{
-			for($j = $col; $j < count($Arr); $j++)	                // Without this sub-loop 
-			{                                                       // 5|1|TV would be before
-				if($Arr[$col][1] == $Arr[$j][1] 					// 4|1|MP3 Player	
-				&& $Arr[$j][0] > $Arr[$col][0]) 					// 
-				{                                                   // This loop puts 
+			for($j = $col; $j < count($Arr); $j++)	                	// Without this sub-loop 
+			{                                                     		// 5|1|TV would be before
+				if($Arr[$col][1] == $Arr[$j][1] 			// 4|1|MP3 Player	
+				&& $Arr[$j][0] > $Arr[$col][0]) 			// 
+				{                                                   	// This loop puts 
 					array_splice($Arr, $row+1, 0, array($Arr[$j])); // 5|1|TV behind 
 					$Arr[$row + 1][3] = $Arr[$row][3] + 1;          // 1|0|Electronics 
 					$j++;                                           // 
 					$Arr[$j] = null;                                // 
 					$col++;                                         // 
 					                                                //
-				}                                                   //
+				}                                                   	//
 			}
 
-				array_splice($Arr, $row + 1, 0, array($Arr[$col])); // With these commands we bring
-				$Arr[$row + 1][3] = $Arr[$row][3] + 1;              // 4|1|MP3 behind Electronics again
-				$col++;                                             //
-				$Arr[$col] = null;                                  //
+				array_splice($Arr, $row + 1, 0, array($Arr[$col])); 	// With these commands we bring
+				$Arr[$row + 1][3] = $Arr[$row][3] + 1;              	// 4|1|MP3 behind Electronics again
+				$col++;                                             	//
+				$Arr[$col] = null;                                  	//
 		}
 	}
 }
