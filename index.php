@@ -1,5 +1,5 @@
 <?php
-// Part1
+// Project: InputOutput
 // Created by Mihkel Tiganik 20.12.2017
 // Input: "Input Data.txt"
 // Output: "Output Data.txt"
